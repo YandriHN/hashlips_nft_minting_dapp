@@ -12,10 +12,10 @@ export const StyledButton = styled.button`
   padding: 10px;
   border-radius: 50px;
   border: none;
-  background-color: var(--secondary);
+  background-color: var(--primary-text);
   padding: 10px;
   font-weight: bold;
-  color: var(--secondary-text);
+  color: var(--primary);
   width: 100px;
   cursor: pointer;
   box-shadow: 0px 6px 0px -2px rgba(250, 250, 250, 0.3);
@@ -75,10 +75,8 @@ export const StyledLogo = styled.img`
 `;
 
 export const StyledImg = styled.img`
-  box-shadow: 0px 5px 11px 2px rgba(0, 0, 0, 0.7);
-  border: 4px dashed var(--secondary);
-  background-color: var(--accent);
-  border-radius: 100%;
+  background-color: linear-gradient(145deg, #7e5e00, #ce9a00);
+  border-radius: 15px;
   width: 200px;
   @media (min-width: 900px) {
     width: 250px;
@@ -99,7 +97,7 @@ function App() {
   const blockchain = useSelector((state) => state.blockchain);
   const data = useSelector((state) => state.data);
   const [claimingNft, setClaimingNft] = useState(false);
-  const [feedback, setFeedback] = useState(`Click buy to mint your NFT.`);
+  const [feedback, setFeedback] = useState(`Click MINT to Get your NFT.`);
   const [mintAmount, setMintAmount] = useState(1);
   const [CONFIG, SET_CONFIG] = useState({
     CONTRACT_ADDRESS: "",
@@ -203,32 +201,59 @@ function App() {
       >
         <StyledLogo alt={"logo"} src={"/config/images/logo.png"} />
         <s.SpacerSmall />
-        <ResponsiveWrapper flex={1} style={{ padding: 24 }} test>
-          <s.Container flex={1} jc={"center"} ai={"center"}>
-            <StyledImg alt={"example"} src={"/config/images/example.gif"} />
+        <s.TextTitle
+              style={{
+                textAlign: "center",
+                fontSize: 22,
+                fontWeight: "bold",
+                color: "var(--accent-text)",
+              }}
+            >
+               70% Total sales will given back to Lucky Minters as prize
+        </s.TextTitle>
+        <s.SpacerSmall />
+        <ResponsiveWrapper flex={1} style={{ padding: 24 }} >
+        <s.Container flex={2} jc={"center"} ai={"center"}
+        style={{
+              backgroundColor: "linear-gradient(145deg, #7e5e00, #ce9a00)",
+              borderRadius: 30,
+              boxShadow: "6px 6px 12px #7e5e00, -6px -6px 12px #ce9a00",
+            }}>
+        <s.TextDescription
+            style={{
+              textAlign: "center",
+              color: "var(--primary-text)",
+            }}
+          >
+            Win Big with Triple image in NFT.
+          </s.TextDescription>
+          <s.SpacerSmall />
+            <StyledImg
+              alt={"example"}
+              src={"/config/images/example.gif"}
+              style={{ transform: "scaleX(1)" }}
+            />
           </s.Container>
-          <s.SpacerLarge />
+          <s.SpacerMedium />
           <s.Container
             flex={2}
             jc={"center"}
             ai={"center"}
             style={{
-              backgroundColor: "var(--accent)",
-              padding: 24,
-              borderRadius: 24,
-              border: "4px dashed var(--secondary)",
-              boxShadow: "0px 5px 11px 2px rgba(0,0,0,0.7)",
+              backgroundColor: "linear-gradient(145deg, #7e5e00, #ce9a00)",
+              borderRadius: 30,
+              boxShadow: "6px 6px 6px #7e5e00, -6px -6px 6px #ce9a00",
             }}
           >
             <s.TextTitle
               style={{
                 textAlign: "center",
-                fontSize: 50,
+                fontSize: 30,
                 fontWeight: "bold",
                 color: "var(--accent-text)",
               }}
             >
-              {data.totalSupply} / {CONFIG.MAX_SUPPLY}
+            Minting Total : {data.totalSupply} / {CONFIG.MAX_SUPPLY}
             </s.TextTitle>
             <s.TextDescription
               style={{
@@ -237,7 +262,7 @@ function App() {
               }}
             >
               <StyledLink target={"_blank"} href={CONFIG.SCAN_LINK}>
-                {truncate(CONFIG.CONTRACT_ADDRESS, 15)}
+               Contract Address : {truncate(CONFIG.CONTRACT_ADDRESS, 15)}
               </StyledLink>
             </s.TextDescription>
             <s.SpacerSmall />
@@ -263,14 +288,14 @@ function App() {
                 <s.TextTitle
                   style={{ textAlign: "center", color: "var(--accent-text)" }}
                 >
-                  1 {CONFIG.SYMBOL} costs {CONFIG.DISPLAY_COST}{" "}
+                  1 {CONFIG.SYMBOL} Costs only : {CONFIG.DISPLAY_COST}{" "}
                   {CONFIG.NETWORK.SYMBOL}.
                 </s.TextTitle>
                 <s.SpacerXSmall />
                 <s.TextDescription
                   style={{ textAlign: "center", color: "var(--accent-text)" }}
                 >
-                  Excluding gas fees.
+                  Including gas fees.
                 </s.TextDescription>
                 <s.SpacerSmall />
                 {blockchain.account === "" ||
@@ -360,7 +385,7 @@ function App() {
                           getData();
                         }}
                       >
-                        {claimingNft ? "BUSY" : "BUY"}
+                        {claimingNft ? "BUSY" : "MINT"}
                       </StyledButton>
                     </s.Container>
                   </>
@@ -369,14 +394,21 @@ function App() {
             )}
             <s.SpacerMedium />
           </s.Container>
-          <s.SpacerLarge />
-          <s.Container flex={1} jc={"center"} ai={"center"}>
+          <s.SpacerMedium />
+        <s.Container flex={2} jc={"center"} ai={"center"}
+        style={{
+              backgroundColor: "linear-gradient(145deg, #7e5e00, #ce9a00)",
+              borderRadius: 30,
+              boxShadow: "6px 6px 12px #7e5e00, -6px -6px 12px #ce9a00",
+            }}>
+          <s.SpacerSmall />
             <StyledImg
               alt={"example"}
-              src={"/config/images/example.gif"}
-              style={{ transform: "scaleX(-1)" }}
+              src={"/config/images/triple.png"}
+              style={{ transform: "scaleX(1)" }}
             />
-          </s.Container>
+                       <s.SpacerSmall />
+        </s.Container>
         </ResponsiveWrapper>
         <s.SpacerMedium />
         <s.Container jc={"center"} ai={"center"} style={{ width: "70%" }}>
@@ -386,9 +418,7 @@ function App() {
               color: "var(--primary-text)",
             }}
           >
-            Please make sure you are connected to the right network (
-            {CONFIG.NETWORK.NAME} Mainnet) and the correct address. Please note:
-            Once you make the purchase, you cannot undo this action.
+            Please make sure you are connected to ( {CONFIG.NETWORK.NAME} Mainnet) .
           </s.TextDescription>
           <s.SpacerSmall />
           <s.TextDescription
