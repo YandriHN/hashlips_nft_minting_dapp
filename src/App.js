@@ -97,25 +97,25 @@ function App() {
   const blockchain = useSelector((state) => state.blockchain);
   const data = useSelector((state) => state.data);
   const [claimingNft, setClaimingNft] = useState(false);
-  const [feedback, setFeedback] = useState(`Click MINT to Get your NFT.`);
+  const [feedback, setFeedback] = useState(`Click MINT to Get your CAT Meong Slot NFT.`);
   const [mintAmount, setMintAmount] = useState(1);
   const [CONFIG, SET_CONFIG] = useState({
-    CONTRACT_ADDRESS: "",
-    SCAN_LINK: "",
+    CONTRACT_ADDRESS: "0x98d718c03075c706bb4c04c2fcf2a89e5231fc5a",
+    SCAN_LINK: "https://rinkeby.etherscan.io/address/0x98d718c03075c706bb4c04c2fcf2a89e5231fc5a",
     NETWORK: {
-      NAME: "",
-      SYMBOL: "",
-      ID: 0,
+      NAME: "Rinkeby",
+      SYMBOL: "ETH",
+      ID: 4,
     },
-    NFT_NAME: "",
-    SYMBOL: "",
-    MAX_SUPPLY: 1,
-    WEI_COST: 0,
-    DISPLAY_COST: 0,
-    GAS_LIMIT: 0,
-    MARKETPLACE: "",
-    MARKETPLACE_LINK: "",
-    SHOW_BACKGROUND: false,
+    NFT_NAME: "CAT Meong Slot",
+    SYMBOL: "CMS",
+    MAX_SUPPLY: 10,
+    WEI_COST: 1000000000000000,
+    DISPLAY_COST: 0.001,
+    GAS_LIMIT: 300000,
+    MARKETPLACE: "OpenSea",
+    MARKETPLACE_LINK: "https://testnets.opensea.io/collection/cat-meong-slot",
+    SHOW_BACKGROUND: true,
   });
 
   const claimNFTs = () => {
@@ -143,7 +143,7 @@ function App() {
       .then((receipt) => {
         console.log(receipt);
         setFeedback(
-          `WOW, the ${CONFIG.NFT_NAME} is yours! go visit Opensea.io to view it.`
+          `WOW, the ${CONFIG.NFT_NAME} is yours! go visit Opensea to view it.`
         );
         setClaimingNft(false);
         dispatch(fetchData(blockchain.account));
@@ -202,32 +202,32 @@ function App() {
         <StyledLogo alt={"logo"} src={"/config/images/logo.png"} />
         <s.SpacerSmall />
         <s.TextTitle
-              style={{
-                textAlign: "center",
-                fontSize: 22,
-                fontWeight: "bold",
-                color: "var(--accent-text)",
-              }}
-            >
-               70% Total sales will given back to Lucky Minters as prize
+          style={{
+            textAlign: "center",
+            fontSize: 22,
+            fontWeight: "bold",
+            color: "var(--accent-text)",
+          }}
+        >
+          70% Total sales will given back to Lucky Minters as prize
         </s.TextTitle>
         <s.SpacerSmall />
         <ResponsiveWrapper flex={1} style={{ padding: 24 }} >
-        <s.Container flex={2} jc={"center"} ai={"center"}
-        style={{
+          <s.Container flex={2} jc={"center"} ai={"center"}
+            style={{
               backgroundColor: "linear-gradient(145deg, #7e5e00, #ce9a00)",
               borderRadius: 30,
               boxShadow: "6px 6px 12px #7e5e00, -6px -6px 12px #ce9a00",
             }}>
-        <s.TextDescription
-            style={{
-              textAlign: "center",
-              color: "var(--primary-text)",
-            }}
-          >
-            Win Big with Triple image in NFT.
-          </s.TextDescription>
-          <s.SpacerSmall />
+            <s.TextDescription
+              style={{
+                textAlign: "center",
+                color: "var(--primary-text)",
+              }}
+            >
+              Win Big with Triple image in NFT.
+            </s.TextDescription>
+            <s.SpacerSmall />
             <StyledImg
               alt={"example"}
               src={"/config/images/example.gif"}
@@ -253,7 +253,7 @@ function App() {
                 color: "var(--accent-text)",
               }}
             >
-            Minting Total : {data.totalSupply} / {CONFIG.MAX_SUPPLY}
+              Minting Total : {data.totalSupply} / {CONFIG.MAX_SUPPLY}
             </s.TextTitle>
             <s.TextDescription
               style={{
@@ -262,7 +262,7 @@ function App() {
               }}
             >
               <StyledLink target={"_blank"} href={CONFIG.SCAN_LINK}>
-               Contract Address : {truncate(CONFIG.CONTRACT_ADDRESS, 15)}
+                Contract Address : {truncate(CONFIG.CONTRACT_ADDRESS, 15)}
               </StyledLink>
             </s.TextDescription>
             <s.SpacerSmall />
@@ -299,7 +299,7 @@ function App() {
                 </s.TextDescription>
                 <s.SpacerSmall />
                 {blockchain.account === "" ||
-                blockchain.smartContract === null ? (
+                  blockchain.smartContract === null ? (
                   <s.Container ai={"center"} jc={"center"}>
                     <s.TextDescription
                       style={{
@@ -395,20 +395,20 @@ function App() {
             <s.SpacerMedium />
           </s.Container>
           <s.SpacerMedium />
-        <s.Container flex={2} jc={"center"} ai={"center"}
-        style={{
+          <s.Container flex={2} jc={"center"} ai={"center"}
+            style={{
               backgroundColor: "linear-gradient(145deg, #7e5e00, #ce9a00)",
               borderRadius: 30,
               boxShadow: "6px 6px 12px #7e5e00, -6px -6px 12px #ce9a00",
             }}>
-          <s.SpacerSmall />
+            <s.SpacerSmall />
             <StyledImg
               alt={"example"}
               src={"/config/images/triple.png"}
               style={{ transform: "scaleX(1)" }}
             />
-                       <s.SpacerSmall />
-        </s.Container>
+            <s.SpacerSmall />
+          </s.Container>
         </ResponsiveWrapper>
         <s.SpacerMedium />
         <s.Container jc={"center"} ai={"center"} style={{ width: "70%" }}>
