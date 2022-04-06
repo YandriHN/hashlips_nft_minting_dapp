@@ -1,18 +1,18 @@
 {
-  "CONTRACT_ADDRESS": "0x98d718c03075c706bb4c04c2fcf2a89e5231fc5a",
-  "SCAN_LINK": "https://rinkeby.etherscan.io/address/0x98d718c03075c706bb4c04c2fcf2a89e5231fc5a",
+  "CONTRACT_ADDRESS": "0xf23d63d2add70af8f92beb7c22cc807ff55a22e5",
+  "SCAN_LINK": "https://rinkeby.etherscan.io/address/0xf23d63d2add70af8f92beb7c22cc807ff55a22e5",
   "NETWORK": {
     "NAME": "Rinkeby",
     "SYMBOL": "ETH",
     "ID": 4
   },
-  "NFT_NAME": "CAT Meong Slot",
+  "NFT_NAME": "CAT Meong Slot V2",
   "SYMBOL": "CMS",
   "MAX_SUPPLY": 10,
   "WEI_COST": 1000000000000000,
   "DISPLAY_COST": 0.001,
   "GAS_LIMIT": 300000,
   "MARKETPLACE": "OpenSea",
-  "MARKETPLACE_LINK": "https://testnets.opensea.io/collection/cat-meong-slot",
+  "MARKETPLACE_LINK": "https://testnets.opensea.io/collection/cat-meong-meong",
   "SHOW_BACKGROUND": true
 }
